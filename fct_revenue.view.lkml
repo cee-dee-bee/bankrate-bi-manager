@@ -19,7 +19,7 @@ view: fct_revenue {
   
   dimension: clickout_id {
     group_label: "IDs"
-    description: "Source application identifier for mortgage revenue."
+    description: "Source clickout identifier for mortgage revenue."
     type: string
     sql: ${TABLE}.clickout_id ;;
   }
