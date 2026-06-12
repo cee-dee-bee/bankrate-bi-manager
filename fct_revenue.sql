@@ -20,7 +20,7 @@ LEFT JOIN analytics.clickouts AS cot
 UNION ALL
 
 SELECT 
-    MD5(CONCAT_WS('|', 'mortgage', rev.application_id)) AS revenue_key,
+    MD5(CONCAT_WS('|', 'mortgage', mrev.clickout_id)) AS revenue_key,
     'mortgage' AS product_type,
     NULL AS application_id,
     mrev.clickout_id AS clickout_id,
