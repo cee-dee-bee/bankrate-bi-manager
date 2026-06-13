@@ -42,7 +42,8 @@ view: fct_clickouts {
 
   dimension: apr {
     description: "APR for mortgage product"
-    type: number
+    type: number 
+    value_format_name: percent_3
     sql: ${TABLE}.apr ;;
   }
 
@@ -66,12 +67,16 @@ view: fct_clickouts {
   }     
 
   measure: avg_apr {
+    description: "Average APR for mortgage product"
     type: avg
+    value_format_name: percent_3
     sql: ${apr} ;;
   }
 
   measure: avg_fees {
+    description: "Average fees for mortgage product"
     type: avg
+    value_format_name: usd
     sql: ${fees} ;;
   }
 }
