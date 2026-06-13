@@ -63,6 +63,7 @@ view: fct_clickouts {
   measure: total_clickouts {
     type: count_distinct
     sql: ${clickout_key} ;;
+  }     
 
   measure: avg_apr {
     type: avg
