@@ -1,10 +1,9 @@
-### bankrate.model ###
 connection: "bankrate_databricks"
 include: "/part1/*.view.lkml" 
 
-label: Bankrate product revenue explore
+label: "Bankrate Business Intelligence Assessment Model" 
 
-### explore focused on revenue and related dimensions ###
+### revenue explore and related application, clickout, partner, and user dimensions ###
 explore: fct_revenue {
   label: "Revenue"
   description: "Revenue by partner, product, and date."
