@@ -107,10 +107,10 @@ ORDER BY approval_rate
 --# HOUSING RATIO SUMMARY
 SELECT
   CASE
-    WHEN 1.0 * monthly_housing / monthly_gross_income <= 0.28 THEN '1. <= 28%'
-    WHEN 1.0 * monthly_housing / monthly_gross_income > 0.28  
-    AND 1.0 * monthly_housing / monthly_gross_income <= 0.45 THEN '2. 29-45%'
-    WHEN 1.0 * monthly_housing / monthly_gross_income > 0.45 THEN '3. 46%+'
+    WHEN 1.0 * monthly_housing_payment / monthly_gross_income <= 0.28 THEN '1. <= 28%'
+    WHEN 1.0 * monthly_housing_payment / monthly_gross_income > 0.28  
+    AND 1.0 * monthly_housing_payment / monthly_gross_income <= 0.45 THEN '2. 29-45%'
+    WHEN 1.0 * monthly_housing_payment / monthly_gross_income > 0.45 THEN '3. 46%+'
     END AS housing_ratio_bucket,
   COUNT(application_id) AS cnt_applications,
   ROUND(1.0* SUM(application_status)/COUNT(application_id),3) AS approval_rate
@@ -123,7 +123,6 @@ ORDER BY 1
 SELECT 
   ever_bankrupt_or_foreclose, 
   COUNT(application_id) AS cnt_applications, 
-  ROUND(AVG(application_stat), 3) AS approval_rate,
   ROUND(1.0* SUM(application_status)/COUNT(application_id),3) AS approval_rate
 FROM bankrate_applications
 GROUP BY 1
