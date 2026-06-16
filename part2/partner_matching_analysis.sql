@@ -150,7 +150,13 @@ SELECT
   ROUND(1.0* SUM(CASE WHEN partner_id = 'B' THEN application_status ELSE 0 END)
         /SUM(CASE WHEN partner_id = 'B' THEN 1 ELSE 0 END),3) AS approval_rate_partner_b,  
   ROUND(1.0* SUM(CASE WHEN partner_id = 'C' THEN application_status ELSE 0 END)
-        /SUM(CASE WHEN partner_id = 'C' THEN 1 ELSE 0 END),3) AS approval_rate_partner_c      
+        /SUM(CASE WHEN partner_id = 'C' THEN 1 ELSE 0 END),3) AS approval_rate_partner_c,
+  ROUND(1.0* SUM(CASE WHEN partner_id = 'A' THEN application_stat ELSE 0 END)
+	  	/SUM(CASE WHEN partner_id = 'A' THEN 1 ELSE 0 END),3) * 250 AS expected_value_a,
+  ROUND(1.0* SUM(CASE WHEN partner_id = 'B' THEN application_stat ELSE 0 END)
+	  	/SUM(CASE WHEN partner_id = 'B' THEN 1 ELSE 0 END),3) * 350 AS expected_value_b,
+  ROUND(1.0* SUM(CASE WHEN partner_id = 'C' THEN application_stat ELSE 0 END)
+	  	/SUM(CASE WHEN partner_id = 'C' THEN 1 ELSE 0 END),3) * 150 AS expected_value_c    
 FROM bankrate_applications  
 GROUP BY 1
 ORDER BY 5 DESC
